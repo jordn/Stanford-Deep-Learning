@@ -18,4 +18,10 @@ function [f,g] = logistic_regression_vec(theta, X,y)
   %        using vectorized code.  (It will be just a few lines of code!)
   %        Store the objective function value in 'f', and the gradient in 'g'.
   %
+  
+  z = theta'*X;
+  h = (1+exp(-z)).^-1; % "Hypothesis", in linear regresion h == z
+  
+  f = sum((h-y).^2)/2    % Objective function - LMS
+  g = X*(h-y)'           % Gradient of the objective function relative to desired.
 %%% YOUR CODE HERE %%%
